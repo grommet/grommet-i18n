@@ -3,7 +3,7 @@ import { Grommet, Box, Text } from "grommet";
 
 function App() {
   return (
-    <Grommet className="App">
+    <Grommet>
       <Box>
         <Text>Hello</Text>
       </Box>
