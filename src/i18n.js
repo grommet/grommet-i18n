@@ -15,7 +15,6 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
-    lng: "en",
     fallbackLng: "en", // use en if detected lng is not available
 
     saveMissing: true, // send not translated keys to endpoint
