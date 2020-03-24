@@ -1,7 +1,19 @@
 {
-  "title": "Welcome to react using react-i18next",
+  "title": "Grommet and i18next working together!",
+  "messages": {
+    "multiple": "multiple"
+  },
+  "selection": {
+    "option1": "small",
+    "option2": "medium",
+    "option3": "large"
+  },
   "description": {
     "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
-    "part2": "Switch language between english and german using buttons above."
+    "part2": "Click to change the language."
+  },
+  "language": {
+    "option1": "English",
+    "option2": "German"
   }
 }

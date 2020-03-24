@@ -1,56 +1,69 @@
-import React, { Component, Suspense } from "react";
-import { useTranslation, withTranslation, Trans } from "react-i18next";
-import { Grommet, grommet, Box, Button, Heading } from "grommet";
+import React, { Suspense, useState } from "react";
+import { useTranslation } from "react-i18next";
+import {
+  Grommet,
+  grommet,
+  Box,
+  Select,
+  Heading,
+  Paragraph,
+  Button
+} from "grommet";
 
-// use hoc for class based components
-class LegacyWelcomeClass extends Component {
-  render() {
-    const { t } = this.props;
-    return <Heading>{t("title")}</Heading>;
-  }
-}
-const Welcome = withTranslation()(LegacyWelcomeClass);
-
-// Component using the Trans component
-function MyComponent() {
-  return (
-    <Trans i18nKey="description.part1">
-      To get started, edit <code>src/App.js</code> and save to reload.
-    </Trans>
-  );
-}
-
-// page uses the hook
 function Page() {
+  const [value, setValue] = useState();
   const { t, i18n } = useTranslation();
 
   const changeLanguage = lng => {
+    setValue();
     i18n.changeLanguage(lng);
   };
 
   return (
     <Grommet theme={grommet}>
-      <Box align="center">
-        <Welcome />
-        <Button onClick={() => changeLanguage("de")} label="de" />
-        <Button onClick={() => changeLanguage("en")} label="en" />
-      </Box>
-      <Box align="center">
-        <MyComponent />
-        <Box>{t("description.part2")}</Box>
+      <Box gap="large">
+        <Box align="center">
+          <Heading level="3" textAlign="center">
+            {t("title")}
+          </Heading>
+          <Paragraph>
+            This example uses i18n to translate the string value found in
+            Select's messages prop.
+          </Paragraph>
+          <Select
+            options={[
+              t("selection.option1"),
+              t("selection.option2"),
+              t("selection.option3")
+            ]}
+            messages={{ multiple: t("messages.multiple") }}
+            multiple
+            value={value}
+            onChange={({ value: nextValue }) => setValue(nextValue)}
+          />
+        </Box>
+        <Box gap="small" align="center">
+          <Paragraph>{t("description.part2")}</Paragraph>
+          <Button
+            onClick={() => changeLanguage("en")}
+            label={t("language.option1")}
+          />
+          <Button
+            onClick={() => changeLanguage("de")}
+            label={t("language.option2")}
+          />
+        </Box>
       </Box>
     </Grommet>
   );
 }
 
-// loading component for suspense fallback
 const Loader = () => (
   <Box className="App">
     <Box>loading...</Box>
   </Box>
 );
 
-// here app catches the suspense from page in case translations are not yet loaded
 export default function App() {
   return (
     <Suspense fallback={<Loader />}>
