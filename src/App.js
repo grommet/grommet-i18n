@@ -1,16 +1,16 @@
 import React, { Suspense, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
+  Box,
+  Button,
+  Heading,
   Grommet,
   grommet,
-  Box,
-  Select,
-  Heading,
   Paragraph,
-  Button
+  Select
 } from "grommet";
 
-function Page() {
+const Page = () => {
   const [value, setValue] = useState();
   const { t, i18n } = useTranslation();
 
@@ -56,18 +56,18 @@ function Page() {
       </Box>
     </Grommet>
   );
-}
+};
 
 const Loader = () => (
-  <Box className="App">
+  <Box>
     <Box>loading...</Box>
   </Box>
 );
 
-export default function App() {
+export default () => {
   return (
     <Suspense fallback={<Loader />}>
       <Page />
     </Suspense>
   );
-}
+};
