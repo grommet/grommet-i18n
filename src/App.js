@@ -27,7 +27,7 @@ const Page = () => {
             {t("title")}
           </Heading>
           <Paragraph>
-            This example uses i18n to translate the string value found in
+            This example uses I18n to translate the string value found in
             Select's messages prop.
           </Paragraph>
           <Select
