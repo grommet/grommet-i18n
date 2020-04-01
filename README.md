@@ -1,68 +1,174 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Grommet and react-i18next quick start guide
 
-## Available Scripts
+#### Resources
 
-In the project directory, you can run:
+[Grommet Starter App](https://github.com/grommet/grommet-starter-new-app "Grommet Starter App")
+[react-i18next step by step guide](https://react.i18next.com/latest/using-with-hooks "react-i18next step by step guide")
 
-### `yarn start`
+#### Installation and setup
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Grommet**
+Install and set up your grommet app using the **Getting Started**, **Cleaning Up**, and **Adding Grommet** sections of the [Grommet Starter App](https://github.com/grommet/grommet-starter-new-app "Grommet Starter App") guide.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**react-i18next**
 
-### `yarn test`
+Install the react-i18next and i18next packages.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+yarn add react-i18next i18next
+```
 
-### `yarn build`
+Install [i18next-xhr-backend](https://github.com/i18next/i18next-xhr-backend "i18next-xhr-backend") to load translations and [i18next-browser-languagedetector](https://github.com/i18next/i18next-browser-languageDetector "i18next-browser-languagedetector") to detect user language.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+yarn add i18next-xhr-backend i18next-browser-languagedetector
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Create a [configuration file](https://www.i18next.com/overview/configuration-options "configuration file"), i18n.js, in the same folder as your index.js file, and add the following lines of code.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```javascript
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
 
-### `yarn eject`
+import Backend from 'i18next-xhr-backend';
+import LanguageDetector from 'i18next-browser-languagedetector';
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+i18n
+  .use(Backend)
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    fallbackLng: 'en',
+    debug: true,
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    interpolation: {
+      escapeValue: false,
+    }
+  });
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+export default i18n;
+```
 
-## Learn More
+Lastly, import the conifg file into the index.js
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```javascript
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+// import here
+import "./i18n";
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ReactDOM.render(<App />, document.getElementById("root"));
+```
 
-### Code Splitting
+#### Translating your first grommet component
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+**Translation files**
+Within the public directory create a folder titled **locales**, and within that create two more titled **en** and **haw**. These two folders will hold the english and hawaiian translation.json files.
 
-### Analyzing the Bundle Size
+![translation-files](public/tutorial/translation-files.png "Translation-Example")
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+In the en translation.json file add these lines of code,
+```javascript
+{
+  "greeting": "Good morning"
+}
+```
+and in the haw translation.json file and these lines of code.
+```javascript
+{
+  "greeting": "Aloha Kakahiaka"
+}
+```
 
-### Making a Progressive Web App
+**useTranslation hook**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+In app.js add these lines of code.
 
-### Advanced Configuration
+```javascript
+import React from "react";
+import { Box, Grommet, grommet, Paragraph } from "grommet";
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+const App = () => {
+  return (
+    <Grommet theme={grommet}>
+      <Box>
+        <Paragraph>hello</Paragraph>
+      </Box>
+    </Grommet>
+  );
+};
 
-### Deployment
+export default App
+```
+To use the [useTranslation](https://react.i18next.com/latest/usetranslation-hook "useTranslation") hook supplied by react-i18next first you will have to import it.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+```javascript
+import React from "react";
+// import here
+import { useTranslation } from "react-i18next";
+import { Box, Grommet, grommet, Paragraph } from "grommet";
 
-### `yarn build` fails to minify
+const App = () => {
+// The useTranslation hook provides the t function and the i18next instance to the component.
+  const { t, i18n } = useTranslation();
+  return (
+    <Grommet theme={grommet}>
+      <Box>
+        <Paragraph>hello</Paragraph>
+      </Box>
+    </Grommet>
+  );
+};
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+export default App
+```
+
+Next, change the paragraph component to use the t function and the greeting in your translation.json files.
+
+```javascript
+// i18next-xhr-backend will look in your locales folder for any translation.json files
+<Paragraph>{t('greeting')}</Paragraph>
+```
+
+**Suspense**
+
+If you run your project now, you will get an error that looks like this.
+
+```
+Error: App suspended while rendering, but no fallback UI was specified.
+Add a <Suspense fallback=...> component higher in the tree to provide a loading indicator or placeholder to display.
+```
+
+To fix this you will need to use [React Suspense](https://reactjs.org/docs/react-api.html#reactsuspense "React Suspense"). Suspense will provide a loading indicator when your component is ready to render.
+
+First import Suspense, and create a simple loader component.
+```javascript
+import React, { Suspense } from "react";
+```
+```javascript
+const Loader = () => (
+  <Box>
+    <Box>loading...</Box>
+  </Box>
+);
+```
+Next wrap your component in Suspense.
+```javascript
+export default () => {
+  return (
+    <Suspense fallback={<Loader />}>
+      <App />
+    </Suspense>
+  );
+};
+```
+
+Running your app now should display your enlgish greeting of good morning. To display the hawaiian greeting for good morning append `?lng=haw` to the url, and to return to the enlgish greeting append `?lng=en` to the url or have no querystring at all. i18next-browser-languageDetector can detect the querysting, and display the appropirate language.
+
+`i18next-browser-languageDetector at work`
+![English-Greeting](public/tutorial/english-greeting.png "English-Greeting")
+
+![Hawaiian-Greeting](public/tutorial/hawaiian-greeting.png "Hawaiian-Greeting")
+
