@@ -3,6 +3,7 @@
 #### Resources
 
 [Grommet Starter App](https://github.com/grommet/grommet-starter-new-app "Grommet Starter App")
+
 [react-i18next step by step guide](https://react.i18next.com/latest/using-with-hooks "react-i18next step by step guide")
 
 #### Installation and setup

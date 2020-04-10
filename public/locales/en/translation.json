@@ -1,5 +1,5 @@
 {
-  "greeting": "Hello",
+  "greeting": "Good Morning!",
   "title": "Grommet and i18next working together!",
   "messages": {
     "multiple": "multiple"

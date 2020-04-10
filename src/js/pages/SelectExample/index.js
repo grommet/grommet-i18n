@@ -1,6 +1,7 @@
 import React, { Suspense, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Box, Button, Heading, Paragraph, Select } from 'grommet';
+import { Link } from 'react-router-dom';
 
 const SelectExample = () => {
   const [value, setValue] = useState();
@@ -43,6 +44,9 @@ const SelectExample = () => {
           onClick={() => changeLanguage('de')}
           label={t('language.option2')}
         />
+        <Link to={`/`}>
+          <Heading level="4">Back</Heading>
+        </Link>
       </Box>
     </Box>
   );
