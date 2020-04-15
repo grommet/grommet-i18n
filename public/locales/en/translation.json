@@ -1,6 +1,4 @@
 {
-  "greeting": "Good Morning!",
-  "title": "Grommet and i18next working together!",
   "messages": {
     "multiple": "multiple"
   },
@@ -9,12 +7,18 @@
     "option2": "medium",
     "option3": "large"
   },
-  "description": {
-    "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
-    "part2": "Click to change the language."
-  },
   "language": {
     "option1": "English",
     "option2": "German"
-  }
+  },
+  "greetings": {
+    "option1": "Hello",
+    "option2": "Good Morning!",
+    "option3": "Good Afternoon!",
+    "option4": "Good Evening!"
+  },
+  "errorMsg": {
+    "option1": "required"
+  },
+  "rtl": "false"
 }

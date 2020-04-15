@@ -25,29 +25,32 @@ const scaleUp = keyframes`
   }
 `;
 
-const animationIn = props => css`
+const animationIn = (props) => css`
   ${scaleDown} 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 `;
 
-const animationOut = props => css`
+const animationOut = (props) => css`
   ${scaleUp} 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both
 `;
 
 const CardContainer = styled(Box)`
-  border: ${props =>
+  border: ${(props) =>
     props.hover ? '#ffffff' : `0.3em solid ${props.theme.global.colors.brand}`};
-  background: ${props =>
+  background: ${(props) =>
     props.hover ? props.theme.global.colors.brand : '#ffffff'};
-  animation: ${props => (props.hover ? animationIn : animationOut)};
+  animation: ${(props) => (props.hover ? animationIn : animationOut)};
 `;
 
-const Card = props => {
+const Card = (props) => {
   const [hover, setHover] = useState(false);
   return (
     <ThemeContext.Consumer>
-      {theme => {
+      {(theme) => {
         return (
-          <Link to={`/${props.title}`} style={{ textDecoration: 'none' }}>
+          <Link
+            to={`/${props.title.toLowerCase()}`}
+            style={{ textDecoration: 'none' }}
+          >
             <CardContainer
               theme={theme}
               hover={hover}

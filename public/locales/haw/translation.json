@@ -1,3 +1,11 @@
 {
-  "greeting": "Aloha Kakahiaka"
+  "greetings": {    
+    "option1": "Aloha",
+    "option2": "Aloha Kakahiaka",
+    "option3": "Aloha ʻauinalā",
+    "option4": "Aloha ahiahi"
+  },
+  "errorMsg": {
+    "option1": "aʻole"
+  }
 }

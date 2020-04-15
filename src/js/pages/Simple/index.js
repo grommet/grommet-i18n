@@ -3,20 +3,24 @@ import { useTranslation } from 'react-i18next';
 import { Box, Button, Heading, Paragraph } from 'grommet';
 import { Link } from 'react-router-dom';
 
-const Tutorial = () => {
+const Simple = () => {
   const { t, i18n } = useTranslation();
 
-  const changeLanguage = lng => {
+  const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
 
   return (
     <Box align="center">
-      <Paragraph>{t('greeting')}</Paragraph>
+      <Paragraph textAlign="center">
+        This example uses react-i18next to translate text within grommet's
+        paragraph component.
+      </Paragraph>
+      <Paragraph>{t('greetings.option1')}</Paragraph>
       <Box gap="small" align="center">
-        <Paragraph>Change the greeting from english to hawaiian</Paragraph>
-        <Button onClick={() => changeLanguage('en')} label="eng" />
-        <Button onClick={() => changeLanguage('haw')} label="haw" />
+        <Paragraph>Change from English to Hawaiian</Paragraph>
+        <Button onClick={() => changeLanguage('en')} label="English" />
+        <Button onClick={() => changeLanguage('haw')} label="Hawaiian" />
       </Box>
       <Link to={`/`}>
         <Heading level="4">Back</Heading>
@@ -34,7 +38,7 @@ const Loader = () => (
 export default () => {
   return (
     <Suspense fallback={<Loader />}>
-      <Tutorial />
+      <Simple />
     </Suspense>
   );
 };

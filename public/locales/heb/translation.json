@@ -1,0 +1,10 @@
+{
+  "rtl": "rtl",
+  "errorMsg": {
+    "option1": "necesario"
+  },
+  "greetings": {
+    "option1": "שלום",
+    "option2": "בוקר טוב"
+  }
+}

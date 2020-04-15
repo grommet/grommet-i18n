@@ -1,5 +1,4 @@
 {
-  "title": "Grommet und i18next arbeiten zusammen!",
   "messages": {
     "multiple": "mehrere"
   },
@@ -7,10 +6,6 @@
     "option1": "klein",
     "option2": "mittel",
     "option3": "groß"
-  },
-  "description": {
-    "part1": "Um loszulegen, ändere <1>src/App(DE).js</1> speicheren und neuladen.",
-    "part2": "Klicken Sie hier, um die Sprache zu ändern"
   },
   "language": {
     "option1": "Englisch",
