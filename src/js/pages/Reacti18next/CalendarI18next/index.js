@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { Box, Calendar, Heading, Paragraph, Text } from 'grommet';
 import { Link } from 'react-router-dom';
 
-const CalendarExample = () => {
+const CalendarI18next = () => {
   return (
     <Box align="center" gap="large">
       <Paragraph textAlign="center">
@@ -51,7 +51,7 @@ const CalendarExample = () => {
           <Text alignSelf="center">locale = heb</Text>
         </Box>
       </Box>
-      <Link to={`/`}>
+      <Link to={`/react-i18next`}>
         <Heading level="4">Back</Heading>
       </Link>
     </Box>
@@ -67,7 +67,7 @@ const Loader = () => (
 export default () => {
   return (
     <Suspense fallback={<Loader />}>
-      <CalendarExample />
+      <CalendarI18next />
     </Suspense>
   );
 };

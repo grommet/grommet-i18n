@@ -18,7 +18,7 @@ i18n
     fallbackLng: 'en', // use en if detected lng is not available
 
     saveMissing: true, // send not translated keys to endpoint
-
+    keySeparator: false,
     interpolation: {
       escapeValue: false, // react already safes from xss
     },

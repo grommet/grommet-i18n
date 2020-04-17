@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Box, Button, Heading, Paragraph, Select } from 'grommet';
 import { Link } from 'react-router-dom';
 
-const SelectExample = () => {
+const SelectI18next = () => {
   const { t, i18n } = useTranslation();
   const [value, setValue] = useState('');
   const [language, setLanuage] = useState('en');
@@ -25,27 +25,27 @@ const SelectExample = () => {
         </Paragraph>
         <Select
           options={[
-            t('selection.option1'),
-            t('selection.option2'),
-            t('selection.option3'),
+            t('select.option1'),
+            t('select.option2'),
+            t('select.option3'),
           ]}
-          messages={{ multiple: t('messages.multiple') }}
+          messages={{ multiple: t('select.multiple') }}
           multiple
           value={value}
           onChange={({ value: nextValue }) => setValue(nextValue)}
         />
       </Box>
       <Box gap="small" align="center">
-        <Paragraph textAlign="center">Change from Enlgish to German</Paragraph>
+        <Paragraph textAlign="center">Change from English to German</Paragraph>
         <Button
           onClick={() => changeLanguage('en')}
-          label={t('language.option1')}
+          label={t('select.language1')}
         />
         <Button
           onClick={() => changeLanguage('de')}
-          label={t('language.option2')}
+          label={t('select.language2')}
         />
-        <Link to={`/`}>
+        <Link to={`/react-i18next`}>
           <Heading level="4">Back</Heading>
         </Link>
       </Box>
@@ -62,7 +62,7 @@ const Loader = () => (
 export default () => {
   return (
     <Suspense fallback={<Loader />}>
-      <SelectExample />
+      <SelectI18next />
     </Suspense>
   );
 };

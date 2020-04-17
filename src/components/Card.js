@@ -43,6 +43,12 @@ const CardContainer = styled(Box)`
 
 const Card = (props) => {
   const [hover, setHover] = useState(false);
+  let title;
+  if (props.title !== 'React-i18next' && props.title !== 'React-intl') {
+    title = props.title.split('-')[0];
+  } else {
+    title = props.title;
+  }
   return (
     <ThemeContext.Consumer>
       {(theme) => {
@@ -61,8 +67,12 @@ const Card = (props) => {
               width="small"
               height="small"
             >
-              <Heading level="2" color={hover ? '#ffffff' : 'brand'}>
-                {props.title}
+              <Heading
+                level="3"
+                color={hover ? '#ffffff' : 'brand'}
+                textAlign="center"
+              >
+                {title}
               </Heading>
             </CardContainer>
           </Link>

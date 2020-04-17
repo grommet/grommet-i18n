@@ -1,9 +1,9 @@
 import React, { Suspense, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Box, Button, Heading, TextInput, Paragraph } from 'grommet';
+import { Box, Button, Form, FormField, Heading, Paragraph } from 'grommet';
 import { Link } from 'react-router-dom';
 
-const TextInputExample = () => {
+const FormI18next = () => {
   const { t, i18n } = useTranslation();
   const [value, setValue] = useState('');
   const [language, setLanuage] = useState('en');
@@ -19,28 +19,24 @@ const TextInputExample = () => {
   return (
     <Box align="center">
       <Paragraph textAlign="center">
-        This example uses react-i18next to translate TextInput's placeholder,
-        and suggestions props.
+        This example uses react-i18next to translate Form's required error
+        message.
       </Paragraph>
-      <Box>
-        <TextInput
-          placeholder={t('greetings.option1')}
-          suggestions={[
-            t('greetings.option1'),
-            t('greetings.option2'),
-            t('greetings.option3'),
-          ]}
+      <Form messages={{ required: t('form.errorMsg') }} validate="blur">
+        <FormField
+          name="name"
+          label="Name"
+          required
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          onSelect={(e) => setValue(e.suggestion)}
         />
-      </Box>
+      </Form>
       <Box gap="small" align="center">
-        <Paragraph>Change from English to Hawaiian</Paragraph>
+        <Paragraph>Change from English to Spanish</Paragraph>
         <Button onClick={() => changeLanguage('eng')} label="English" />
-        <Button onClick={() => changeLanguage('haw')} label="Hawaiian" />
+        <Button onClick={() => changeLanguage('spa')} label="Spanish" />
       </Box>
-      <Link to={`/`}>
+      <Link to={`/react-i18next`}>
         <Heading level="4">Back</Heading>
       </Link>
     </Box>
@@ -56,7 +52,7 @@ const Loader = () => (
 export default () => {
   return (
     <Suspense fallback={<Loader />}>
-      <TextInputExample />
+      <FormI18next />
     </Suspense>
   );
 };

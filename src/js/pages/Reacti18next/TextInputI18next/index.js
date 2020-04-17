@@ -1,9 +1,9 @@
 import React, { Suspense, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Box, Button, Form, FormField, Heading, Paragraph } from 'grommet';
+import { Box, Button, Heading, TextInput, Paragraph } from 'grommet';
 import { Link } from 'react-router-dom';
 
-const FormExample = () => {
+const TextInputI18next = () => {
   const { t, i18n } = useTranslation();
   const [value, setValue] = useState('');
   const [language, setLanuage] = useState('en');
@@ -19,24 +19,28 @@ const FormExample = () => {
   return (
     <Box align="center">
       <Paragraph textAlign="center">
-        This example uses react-i18next to translate Form's required error
-        message.
+        This example uses react-i18next to translate TextInput's placeholder,
+        and suggestions props.
       </Paragraph>
-      <Form messages={{ required: t('errorMsg.option1') }} validate="blur">
-        <FormField
-          name="name"
-          label="Name"
-          required
+      <Box>
+        <TextInput
+          placeholder={t('textinput.greeting1')}
+          suggestions={[
+            t('textinput.greeting2'),
+            t('textinput.greeting3'),
+            t('textinput.greeting4'),
+          ]}
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          onSelect={(e) => setValue(e.suggestion)}
         />
-      </Form>
-      <Box gap="small" align="center">
-        <Paragraph>Change from English to Spanish</Paragraph>
-        <Button onClick={() => changeLanguage('eng')} label="English" />
-        <Button onClick={() => changeLanguage('spa')} label="Spanish" />
       </Box>
-      <Link to={`/`}>
+      <Box gap="small" align="center">
+        <Paragraph>Change from English to Hawaiian</Paragraph>
+        <Button onClick={() => changeLanguage('eng')} label="English" />
+        <Button onClick={() => changeLanguage('haw')} label="Hawaiian" />
+      </Box>
+      <Link to={`/react-i18next`}>
         <Heading level="4">Back</Heading>
       </Link>
     </Box>
@@ -52,7 +56,7 @@ const Loader = () => (
 export default () => {
   return (
     <Suspense fallback={<Loader />}>
-      <FormExample />
+      <TextInputI18next />
     </Suspense>
   );
 };
