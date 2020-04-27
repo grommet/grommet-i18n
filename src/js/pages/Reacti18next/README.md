@@ -162,7 +162,7 @@ export default () => {
 };
 ```
 
-Running your app now should display your enlgish greeting of good morning. To display the hawaiian greeting for good morning append `?lng=haw` to the url, and to return to the enlgish greeting append `?lng=en` to the url or have no querystring at all. i18next-browser-languageDetector can detect the querysting, and display the appropirate language.
+Running your app now should display your english greeting of good morning. To display the hawaiian greeting for good morning append `?lng=haw` to the url, and to return to the english greeting append `?lng=en` to the url or have no querystring at all. i18next-browser-languageDetector can detect the querysting, and display the appropirate language.
 
 `i18next-browser-languageDetector at work`
 

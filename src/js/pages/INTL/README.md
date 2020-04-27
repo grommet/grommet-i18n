@@ -128,7 +128,38 @@ Next, wrap the text within the Paragraph component with react-intl's FormattedMe
 <Paragraph><FormattedMessage id="simple.greeting" defaultMessage="Hello" /></Paragraph>
 ```  
 
-Running your app now should display your enlgish greeting of good morning. To display the hawaiian greeting for good morning change the value of react-intl's IntlProvider messages prop to Hawaiian.
+An alternative to the FormattedMessage component would be the useIntl hook.
+
+First import useIntl in app.js, and call it within your component.
+
+```javascript
+import React from  "react";
+// import here
+import { FormattedMessage, useIntl } from  'react-intl';
+import { Box, Grommet, grommet, Paragraph } from  "grommet";
+
+const  App  =  ()  => {
+  // call useIntl here
+  const intl = useIntl();
+  return (
+    <Grommet  theme={grommet}>
+      <Box>
+        <Paragraph>hello</Paragraph>
+      </Box>
+    </Grommet>
+  );
+};
+
+export  default App
+```
+
+Next use intl's formatMessage function.
+
+```javascript
+<Paragraph> intl.formatMessage({ id: 'simple.greeting' })</Paragraph>
+```
+
+Running your app now should display your english greeting of good morning. To display the hawaiian greeting for good morning change the value of react-intl's IntlProvider messages prop to Hawaiian.
 
 ```javascript
 ReactDOM.render(
