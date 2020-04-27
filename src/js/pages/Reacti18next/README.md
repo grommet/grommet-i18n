@@ -64,7 +64,7 @@ ReactDOM.render(<App />, document.getElementById("root"));
 **Translation files**
 Within the public directory create a folder titled **locales**, and within that create two more titled **en** and **haw**. These two folders will hold the english and hawaiian translation.json files.
 
-![translation-files](public/tutorial/translation-files.png "Translation-Example")
+![translation-files](../../../../public/tutorial/translation-files.png "Translation-Example")
 
 In the en translation.json file add these lines of code,
 ```javascript
@@ -166,7 +166,7 @@ Running your app now should display your enlgish greeting of good morning. To di
 
 `i18next-browser-languageDetector at work`
 
-![English-Greeting](public/tutorial/english-greeting.png "English-Greeting")
+![English-Greeting](../../../../public/tutorial/english-greeting.png "English-Greeting")
 
-![Hawaiian-Greeting](public/tutorial/hawaiian-greeting.png "Hawaiian-Greeting")
+![Hawaiian-Greeting](../../../../public/tutorial/hawaiian-greeting.png "Hawaiian-Greeting")
 

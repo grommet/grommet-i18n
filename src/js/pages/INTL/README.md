@@ -27,7 +27,7 @@ yarn add react-intl
 Within the src directory create a folder titled **languages**, and within that create two files titled **en-US.json** and **haw.json**.
   
 
-![language-files](public/tutorial/language-files.png "Translation-Example")
+![language-files](../../../../public/tutorial/language-files.png "Translation-Example")
 
 In the **en-US.json** file add these lines of code,
 
