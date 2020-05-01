@@ -1,5 +1,7 @@
 # Grommet quick start guides
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/df525855-9c21-42b6-ac1c-68ffb090b356/deploy-status)](https://app.netlify.com/sites/eloquent-blackwell-be87e3/deploys)
+
 Hello!
 
 Welcome to grommet-i18n.
