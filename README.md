@@ -12,4 +12,4 @@ Grommet is allowing the usage of different external i18n react packages, this re
 
 2. react-intl, [example project](https://github.com/IanKBovard/I18N-Grommet/tree/feat/i18n/src/js/pages/INTL "react-intl readme")
 
-Drill down to each readme to learn how the packages could be installed and used within a grommet application.
+Drill down to each readme to learn how the packages could be installed and used within a grommet application. and enter the Netlify deployment to see how different locales impacts the translated messages.
