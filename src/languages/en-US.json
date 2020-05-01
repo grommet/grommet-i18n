@@ -1,0 +1,20 @@
+{
+  "simple.greeting" : "Hello",
+  "textinput.greeting1": "Hello",
+  "textinput.greeting2": "Good Morning!",
+  "textinput.greeting3": "Good Afternoon!",
+  "textinput.greeting4": "Good Evening!",
+
+  "select.option1": "small",
+  "select.option2": "medium",
+  "select.option3": "large",
+  "select.language1": "English",
+  "select.language2": "German",
+  "select.multiple": "multiple",
+
+  "form.errorMsg": "required",
+
+  "rtl": "false",
+  "rtl.greeting": "Good Morning!"
+
+}
