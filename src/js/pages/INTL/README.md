@@ -4,7 +4,7 @@
 
 [Grommet Starter App](https://github.com/grommet/grommet-starter-new-app "Grommet Starter App")
 
-[react-intl getting started guide](https://github.com/formatjs/react-intl/blob/master/docs/Getting-Started.md#intro-guides "react-intl getting started guide")
+[react-intl docs](https://formatjs.io/docs/react-intl "react-intl docs")
 
 #### Installation and setup
 
