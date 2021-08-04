@@ -68,7 +68,7 @@ const IntlWrapper = (props) => {
   };
 
   return (
-    <Context.Provider value={{ locale, changeLocale }}>
+    <Context.Provider value={{ locale, changeLocale, messages }}>
       <IntlProvider messages={messages} locale={locale}>
         {props.children}
       </IntlProvider>
